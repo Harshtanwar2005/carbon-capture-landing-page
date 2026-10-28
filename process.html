@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Carbon Capture Technology</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #0f221a;
+            color: #e2e8f0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation Bar --- */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            background-color: rgba(15, 34, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 18px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 224, 173, 0.15);
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a:nth-child(3) {
+            color: #8BE0AD;
+        }
+
+        /* --- Parallax Header with Background Image --- */
+        .process-header {
+            position: relative;
+            background: linear-gradient(135deg, rgba(13, 37, 31, 0.88), rgba(8, 24, 19, 0.92)), 
+                        url('https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 1px solid rgba(139, 224, 173, 0.2);
+        }
+
+        .process-header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .process-header h1 span {
+            color: #8BE0AD;
+        }
+
+        .process-header p {
+            font-size: 16px;
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* --- Main Container --- */
+        .process-main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 60px auto;
+        }
+
+        /* --- Overview Box --- */
+        .process-overview {
+            background: rgba(20, 48, 38, 0.6);
+            border: 1px solid rgba(139, 224, 173, 0.2);
+            border-left: 6px solid #8BE0AD;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .process-overview h2 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .process-overview p {
+            color: #cbd5e1;
+            font-size: 15.5px;
+            line-height: 1.8;
+        }
+
+        /* --- Section Title --- */
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: #8BE0AD;
+        }
+
+        /* --- Animated Steps Container --- */
+        .animated-steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: center;
+            background: rgba(18, 42, 33, 0.7);
+            border: 1px solid rgba(139, 224, 173, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        .step-row:hover {
+            transform: translateY(-5px);
+            border-color: #8BE0AD;
+        }
+
+        /* Left se aane wala animation effect */
+        .step-row.slide-left {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        /* Right se aane wala animation effect */
+        .step-row.slide-right {
+            flex-direction: row-reverse;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .step-img-box {
+            flex: 1;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .step-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .step-row:hover .step-img-box img {
+            transform: scale(1.08);
+        }
+
+        .step-text-box {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .step-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #0f221a;
+            background-color: #8BE0AD;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-text-box h3 {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .step-text-box p {
+            color: #94a3b8;
+            font-size: 14.5px;
+            line-height: 1.7;
+        }
+
+        /* --- Footer Style --- */
+        .site-footer {
+            background-color: #081711;
+            color: white;
+            padding: 60px 30px 20px 30px;
+            border-top: 1px solid rgba(139, 224, 173, 0.15);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3, .footer-links h3 {
+            color: #8BE0AD;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            color: #9ca3af;
+            font-size: 13px;
+            max-width: 350px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #8BE0AD;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        /* --- Keyframe Animations for Side Sliding --- */
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-80px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            0% { opacity: 0; transform: translateX(80px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* --- Responsive Design --- */
+        @media(max-width: 900px) {
+            .step-row, .step-row.slide-right {
+                flex-direction: column !important;
+            }
+            .step-img-box {
+                width: 100%;
+                height: 220px;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="process.html">How It Works</a>
+        <a href="technology.html">Technology</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="future.html">Future</a>
+    </nav>
+
+    <!-- Parallax Header -->
+    <header class="process-header">
+        <h1>Engineering The <span>Process</span></h1>
+        <p>A focused technical breakdown of how industrial carbon capture moves from factory emissions to secure subterranean storage.</p>
+    </header>
+
+    <main class="process-main">
+        
+        <!-- Overview Section -->
+        <section class="process-overview">
+            <h2>The Technical Workflow</h2>
+            <p>
+                Carbon capture and storage (CCS) operates through a strict multi-stage industrial engineering sequence. Every phase from capturing exhaust gases to underground injection is designed with precision to safeguard our atmospheric balance.
+            </p>
+        </section>
+
+        <h2 class="section-title">Step-by-Step <span>Mechanism</span></h2>
+
+        <!-- Animated Rows Container -->
+        <div class="animated-steps-container">
+            
+            <!-- Row 1: Left se aane wala card (Industrial Factory/Capture Focus) -->
+            <div class="step-row slide-left">
+                <div class="step-img-box">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Industrial Carbon Capture Plant">
+                </div>
+                <div class="step-text-box">
+                    <span class="step-badge">Phase 01</span>
+                    <h3>Industrial Capture</h3>
+                    <p>
+                        Exhaust flue gases emerging from large power stations and heavy manufacturing units are directed through specialized chemical solvents or membrane units to selectively separate carbon dioxide before smoke exits the stacks.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Row 2: Right se aane wala card (Pipeline/Transport Focus) -->
+            <div class="step-row slide-right">
+                <div class="step-img-box">
+                    <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80" alt="Pipeline and Industrial Infrastructure">
+                </div>
+                <div class="step-text-box">
+                    <span class="step-badge">Phase 02</span>
+                    <h3>Compression & Transport</h3>
+                    <p>
+                        Once isolated, the carbon dioxide is purified and subjected to intense pressure, converting it into a dense supercritical liquid state suitable for safe transit across dedicated high-pressure steel pipeline networks.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Row 3: Left se aane wala card (Geological/Storage Focus) -->
+            <div class="step-row slide-left">
+                <div class="step-img-box">
+                    <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=800&q=80" alt="Deep Earth and Geological Formations">
+                </div>
+                <div class="step-text-box">
+                    <span class="step-badge">Phase 03</span>
+                    <h3>Permanent Storage</h3>
+                    <p>
+                        The compressed fluid is injected deeply beneath the Earth's crust into stable saline formations or depleted geological reservoirs, where impermeable rock layers permanently lock the emissions away from the atmosphere.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Carbon Capture Technology</h3>
+                <p>An advanced human-crafted educational portal detailing the infrastructure of industrial decarbonization.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="process.html">How It Works</a>
+                <a href="technology.html">Technology</a>
+                <a href="benefits.html">Benefits</a>
+                <a href="future.html">Future</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Carbon Capture Technology Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

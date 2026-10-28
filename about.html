@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Carbon Capture | Technology & Insights</title>
+    <!-- Google Fonts for Human-designed typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Reset & Modern Variables --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f7faf8;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+
+        /* --- Navigation Bar --- */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            background-color: #113028;
+            padding: 18px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a:nth-child(2) {
+            color: #8BE0AD;
+        }
+
+        /* --- Page Header --- */
+        .about-header {
+            background: linear-gradient(135deg, #113028 0%, #1f4e42 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .about-header h1 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .about-header h1 span {
+            color: #8BE0AD;
+        }
+
+        .about-header p {
+            font-size: 15px;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Main Content Layout --- */
+        .about-page {
+            width: 90%;
+            max-width: 1050px;
+            margin: 0 auto 60px auto;
+        }
+
+        /* --- Section Grid Styling (Image + Text Split) --- */
+        .content-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(17, 48, 40, 0.04);
+            border: 1px solid #e2ebd9;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(17, 48, 40, 0.08);
+        }
+
+        /* Reverse layout for alternating rows */
+        .content-block.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+        .content-block.reverse .block-image {
+            order: 2;
+        }
+        .content-block.reverse .block-text {
+            order: 1;
+        }
+
+        .block-text h2 {
+            color: #113028;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .block-text p {
+            color: #4a5568;
+            font-size: 14.5px;
+            margin-bottom: 12px;
+        }
+
+        .block-image img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        /* --- Full Width Intro Card --- */
+        .intro-full {
+            background: linear-gradient(135deg, #f4f8f5, #e8f2ec);
+            border-left: 5px solid #113028;
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .intro-full h2 {
+            color: #113028;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .intro-full p {
+            color: #374151;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        /* --- Important Facts / Key Takeaways Section --- */
+        .about-facts {
+            background-color: #113028;
+            color: white;
+            padding: 45px 35px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+        }
+
+        .about-facts h2 {
+            text-align: center;
+            font-size: 26px;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .facts-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .fact-box {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 25px 20px;
+            border-radius: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .fact-box:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .fact-box h3 {
+            color: #8BE0AD;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .fact-box p {
+            color: #cbd5e1;
+            font-size: 13.5px;
+            margin: 0;
+        }
+
+        /* --- Conclusion Section --- */
+        .about-conclusion {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 14px;
+            border: 1px solid #e2ebd9;
+            text-align: center;
+        }
+
+        .about-conclusion h2 {
+            color: #113028;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .about-conclusion p {
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+
+        /* --- Footer Style --- */
+        .site-footer {
+            background-color: #0d251f;
+            color: white;
+            padding: 50px 30px 20px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3, .footer-links h3 {
+            color: #8BE0AD;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            color: #9ca3af;
+            font-size: 13px;
+            max-width: 350px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #8BE0AD;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        /* --- Responsive Design for Mobiles --- */
+        @media(max-width: 768px) {
+            .content-block, .content-block.reverse {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            .content-block.reverse .block-image {
+                order: 1;
+            }
+            .content-block.reverse .block-text {
+                order: 2;
+            }
+            .facts-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="process.html">How It Works</a>
+        <a href="technology.html">Technology</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="future.html">Future</a>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="about-header">
+        <h1>About Carbon Capture <span>Technology</span></h1>
+        <p>Exploring how industrial engineering and climate science intersect to protect our atmospheric balance.</p>
+    </header>
+
+    <main class="about-page">
+        
+        <!-- Introduction Section (Full Width Accent) -->
+        <section class="intro-full">
+            <h2>What Is Carbon Capture?</h2>
+            <p>
+                Carbon capture is an advanced industrial technology designed to intercept carbon dioxide ($CO_2$) emissions directly at the source—such as large manufacturing units, steel plants, and power generators—before they can disperse into the atmosphere.
+            </p>
+            <p>
+                As a primary greenhouse gas driving rapid climate change, curbing accumulated $CO_2$ is crucial. Carbon capture serves as an indispensable engineering toolkit to isolate emissions and manage them responsibly.
+            </p>
+        </section>
+
+        <!-- Section 1: Why It Was Developed (Image + Text Split) -->
+        <section class="content-block">
+            <div class="block-text">
+                <h2>Why Was Carbon Capture Developed?</h2>
+                <p>
+                    Heavy industries form the backbone of modern society, producing vital assets like steel, cement, and electrical energy. However, these sectors inherently release massive quantities of carbon dioxide due to chemical reactions and intense heat requirements.
+                </p>
+                <p>
+                    Traditional energy transitions alone cannot eliminate these specific process emissions instantly. Carbon capture was engineered precisely to bridge this gap, capturing hard-to-abate industrial exhaust effectively.
+                </p>
+            </div>
+            <div class="block-image">
+                <!-- Image Link: Industrial Plant -->
+                <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80" alt="Industrial Factory Emissions">
+            </div>
+        </section>
+
+        <!-- Section 2: How It Helps (Reversed Split) -->
+        <section class="content-block reverse">
+            <div class="block-text">
+                <h2>How Does It Help the Environment?</h2>
+                <p>
+                    By capturing and securely locking away greenhouse gases, significantly less pollution enters our air ecosystem. This directly alleviates pressure on global temperature targets and supports international climate agreements.
+                </p>
+                <p>
+                    It is important to note that carbon capture functions best as part of a hybrid strategy—combining renewable energy integration, energy efficiency upgrades, and systemic fossil fuel reduction.
+                </p>
+            </div>
+            <div class="block-image">
+                <!-- Image Link: Green Technology / Nature Integration -->
+                <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=600&q=80" alt="Clean Environment and Sustainability">
+            </div>
+        </section>
+
+        <!-- Section 3: What Happens to Captured CO2 -->
+        <section class="content-block">
+            <div class="block-text">
+                <h2>What Happens to Captured CO₂?</h2>
+                <p>
+                    Once separated from flue gases, the carbon dioxide is pressurized into a liquid-like supercritical state and transported via specialized pipeline networks.
+                </p>
+                <p>
+                    The primary disposal method involves deep geological sequestration—pumping the gas miles underground into stable rock reservoirs where it remains trapped securely under continuous observation. Alternatively, some industries repurpose it for manufacturing synthetic fuels or construction materials.
+                </p>
+            </div>
+            <div class="block-image">
+                <!-- Image Link: Underground Storage / Pipeline concept -->
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Pipeline and Underground Storage">
+            </div>
+        </section>
+
+        <!-- Important Points / Infographic Grid -->
+        <section class="about-facts">
+            <h2>Core Takeaways & Insights</h2>
+            <div class="facts-container">
+                <div class="fact-box">
+                    <h3>Emission Mitigation</h3>
+                    <p>Substantially decreases direct output from heavy industrial factories and energy plants.</p>
+                </div>
+                <div class="fact-box">
+                    <h3>Secure Containment</h3>
+                    <p>Requires rigorous environmental monitoring, site selection, and long-term geological planning.</p>
+                </div>
+                <div class="fact-box">
+                    <h3>Collaborative Strategy</h3>
+                    <p>Works in tandem with solar, wind, and green conservation frameworks rather than acting alone.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section class="about-conclusion">
+            <h2>The Road Ahead</h2>
+            <p>
+                Carbon capture stands as a critical pillar in modern environmental engineering. While economic costs and scaling hurdles exist, its ongoing evolution offers a viable pathway toward achieving net-zero industrial targets globally.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Carbon Capture Technology</h3>
+                <p>An advanced educational project exploring industrial emission control, ecological preservation, and sustainable futures.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="process.html">How It Works</a>
+                <a href="technology.html">Technology</a>
+                <a href="benefits.html">Benefits</a>
+                <a href="future.html">Future</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Carbon Capture Technology Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

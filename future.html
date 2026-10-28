@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Vision | EcoCapture</title>
+    <!-- Google Fonts for Human-like Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Single Page Embedded CSS (No External CSS needed) -->
+    <style>
+        /* --- Global Reset & Modern Variables --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #061813;
+            color: #e2e8f0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- Professional Centered Navigation Bar --- */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            background-color: rgba(9, 28, 22, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 224, 173, 0.15);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #8BE0AD;
+        }
+
+        /* --- Unique Futuristic Hero Header --- */
+        .future-hero {
+            position: relative;
+            padding: 100px 20px 60px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, #113028 0%, #061813 80%);
+            overflow: hidden;
+            border-bottom: 1px solid rgba(139, 224, 173, 0.1);
+        }
+
+        .future-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(139, 224, 173, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(139, 224, 173, 0.1);
+            color: #8BE0AD;
+            border: 1px solid rgba(139, 224, 173, 0.3);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            animation: pulseGlow 3s infinite;
+        }
+
+        .future-hero h1 {
+            font-size: 44px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .future-hero h1 span {
+            color: #8BE0AD;
+            text-shadow: 0 0 25px rgba(139, 224, 173, 0.3);
+        }
+
+        .future-hero p {
+            font-size: 16px;
+            color: #94a3b8;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+            opacity: 0;
+        }
+
+        /* --- Timeline / Roadmap Grid Layout (Unique Idea) --- */
+        .main-container {
+            max-width: 1000px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+
+        .timeline-section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .timeline-section-title h2 {
+            font-size: 30px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .timeline-section-title p {
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            position: relative;
+        }
+
+        /* Human-designed asymmetric futuristic cards */
+        .roadmap-card {
+            background: rgba(11, 36, 28, 0.6);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(139, 224, 173, 0.15);
+            border-radius: 16px;
+            padding: 35px;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 25px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .roadmap-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; height: 100%; width: 4px;
+            background: #8BE0AD;
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .roadmap-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(139, 224, 173, 0.4);
+            background: rgba(15, 48, 38, 0.85);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-year-badge {
+            width: 80px;
+            height: 80px;
+            background: rgba(139, 224, 173, 0.08);
+            border: 1px solid rgba(139, 224, 173, 0.25);
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #8BE0AD;
+            font-weight: 700;
+            font-size: 18px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-card:hover .card-year-badge {
+            background: #8BE0AD;
+            color: #061813;
+            transform: scale(1.05);
+        }
+
+        .card-year-badge span {
+            font-size: 11px;
+            font-weight: 400;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .card-info h3 {
+            color: #ffffff;
+            font-size: 21px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-info p {
+            color: #94a3b8;
+            font-size: 14.5px;
+            line-height: 1.7;
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-25px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(25px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(139, 224, 173, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(139, 224, 173, 0); }
+        }
+
+        /* --- Footer --- */
+        .site-footer {
+            background-color: #04100c;
+            color: white;
+            padding: 50px 30px 20px 30px;
+            border-top: 1px solid rgba(139, 224, 173, 0.1);
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3, .footer-links h3 {
+            color: #8BE0AD;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            color: #94a3b8;
+            font-size: 13px;
+            max-width: 350px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #8BE0AD;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        /* --- Responsive Design for Mobiles --- */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .future-hero h1 {
+                font-size: 32px;
+            }
+            .roadmap-card {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 25px;
+            }
+            .card-year-badge {
+                width: 100%;
+                height: 45px;
+                flex-direction: row;
+                gap: 10px;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Professional Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="process.html">How It Works</a>
+            <a href="technology.html">Technology</a>
+            <a href="benefits.html">Benefits</a>
+            <a href="future.html" class="active">Future</a>
+        </div>
+    </nav>
+
+    <!-- Futuristic Hero Header -->
+    <header class="future-hero">
+        <div class="hero-content">
+            <span class="hero-badge">Vision 2050 & Beyond</span>
+            <h1>The Future of <span>Carbon Capture</span></h1>
+            <p>Exploring next-generation atmospheric innovations, AI-driven optimization, and scalable planetary restoration frameworks.</p>
+        </div>
+    </header>
+
+    <!-- Main Content: Timeline Roadmap Layout -->
+    <main class="main-container">
+        
+        <div class="timeline-section-title">
+            <h2>The Innovation Roadmap</h2>
+            <p>How carbon capture engineering is set to evolve over the coming decades.</p>
+        </div>
+
+        <div class="roadmap-grid">
+            
+            <!-- Roadmap Card 1 -->
+            <div class="roadmap-card">
+                <div class="card-year-badge">
+                    2030
+                    <span>Phase 1</span>
+                </div>
+                <div class="card-info">
+                    <h3>Industrial Retrofitting & Scaling</h3>
+                    <p>Widespread adoption of post-combustion capture units across major steel, cement, and power production hubs, backed by government emission mandates and tax incentives.</p>
+                </div>
+            </div>
+
+            <!-- Roadmap Card 2 -->
+            <div class="roadmap-card">
+                <div class="card-year-badge">
+                    2035
+                    <span>Phase 2</span>
+                </div>
+                <div class="card-info">
+                    <h3>Direct Air Capture (DAC) Networks</h3>
+                    <p>Deployment of massive modular DAC facilities powered entirely by dedicated local solar and wind microgrids, drastically lowering the energy cost per ton of extracted CO₂.</p>
+                </div>
+            </div>
+
+            <!-- Roadmap Card 3 -->
+            <div class="roadmap-card">
+                <div class="card-year-badge">
+                    2040
+                    <span>Phase 3</span>
+                </div>
+                <div class="card-info">
+                    <h3>AI & Advanced Nanomaterials</h3>
+                    <p>Integration of real-time AI automation and quantum-designed synthetic filter membranes that capture carbon with near-zero chemical degradation and higher efficiency.</p>
+                </div>
+            </div>
+
+            <!-- Roadmap Card 4 -->
+            <div class="roadmap-card">
+                <div class="card-year-badge">
+                    2050
+                    <span>Phase 4</span>
+                </div>
+                <div class="card-info">
+                    <h3>Global Net-Negative Ecosystems</h3>
+                    <p>Transitioning from mere emission reduction to planetary-scale carbon removal, effectively stabilizing global atmospheric greenhouse gas concentrations.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>EcoCapture / Carbon Tech</h3>
+                <p>Dedicated to spreading awareness about carbon capture, reduction of industrial emissions, and environmental preservation.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="process.html">How It Works</a>
+                <a href="technology.html">Technology</a>
+                <a href="benefits.html">Benefits</a>
+                <a href="future.html">Future</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Carbon Capture Technology Project. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

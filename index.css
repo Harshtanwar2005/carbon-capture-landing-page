@@ -1,0 +1,495 @@
+/* --- Global Styles & Variables --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f9fbf9;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #113028;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand span {
+    font-size: 20px;
+    font-weight: 700;
+    color: #8BE0AD;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #d1d5db;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #8BE0AD;
+}
+
+/* --- Hero Section --- */
+.home-header {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    padding: 60px 80px;
+    /* Agar aapke paas background image ho toh yahan URL de sakte hain, filhal premium gradient use kiya hai */
+    background: linear-gradient(135deg, #113028 0%, #1a4d40 60%, #285e50 100%);
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(17, 48, 40, 0.85);
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.tagline {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #8BE0AD;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.header-text h1 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.header-text h1 span {
+    color: #8BE0AD;
+    display: inline-block;
+}
+
+.header-text h3 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #e2e8f0;
+}
+
+.header-text p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #cbd5e1;
+}
+
+.header-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    background-color: #8BE0AD;
+    color: #113028;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(139, 224, 173, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 2px solid #8BE0AD;
+    color: #8BE0AD;
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(139, 224, 173, 0.1);
+}
+
+/* --- Main Layout Container --- */
+.main-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* --- Capture Section & Interactive Cards --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    color: #113028;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+.capture-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.capture-box {
+    position: relative;
+    flex: 1;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+
+.capture-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.capture-box:hover img {
+    transform: scale(1.05);
+}
+
+.capture-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(17, 48, 40, 0.95), rgba(17, 48, 40, 0.8));
+    color: white;
+    transform: translateY(75%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.capture-box:hover .capture-content {
+    transform: translateY(0);
+}
+
+.capture-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #8BE0AD;
+}
+
+.capture-content p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+/* --- Importance & Working Steps Section --- */
+.importance-section {
+    background: white;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    margin-bottom: 50px;
+}
+
+.importance-card {
+    margin-bottom: 40px;
+}
+
+.importance-card h2, .steps-container h2, .project-info-box h2 {
+    color: #113028;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.importance-card p, .project-info-box p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.steps-container {
+    margin: 40px 0;
+}
+
+.steps {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.step {
+    flex: 1;
+    padding: 30px 25px;
+    background-color: #f4f8f5;
+    border: 1px solid #e2ebd9;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(17, 48, 40, 0.08);
+    border-color: #8BE0AD;
+    background-color: #ffffff;
+}
+
+.step-num {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #113028;
+    background-color: #8BE0AD;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.step h3 {
+    color: #113028;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.step p {
+    color: #555555;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.project-info-box {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #edf2f7;
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: #0d251f;
+    color: white;
+    padding: 50px 50px 20px 50px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-about {
+    max-width: 400px;
+}
+
+.footer-about h3 {
+    color: #8BE0AD;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-about p {
+    color: #9ca3af;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.footer-links h3 {
+    color: #8BE0AD;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #8BE0AD;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .home-header {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+    .header-text h1 {
+        font-size: 32px;
+    }
+    .capture-container {
+        flex-direction: column;
+    }
+    .steps {
+        flex-direction: column;
+    }
+    .importance-section {
+        padding: 25px;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+.home-header {
+    position: relative;
+    /* Background image with a dark gradient fallback */
+    background: linear-gradient(to right, rgba(10, 35, 20, 0.9), rgba(10, 35, 20, 0.4)), 
+                url('Industrial Plant Amid Greenery and Sky.PNG');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 100px 20px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Adjust darkness over the image if needed */
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+/* --- Slider Buttons Styling --- */
+.tech-slider-container {
+    position: relative;
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.slider-btn {
+    background-color: #113028;
+    color: #8BE0AD;
+    border: 2px solid #8BE0AD;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.slider-btn:hover {
+    background-color: #8BE0AD;
+    color: #113028;
+    transform: scale(1.1);
+}
+
+#slideLeft {
+    left: -20px;
+}
+
+#slideRight {
+    right: -20px;
+}
+
+/* Hide scrollbar completely now that we have buttons */
+.tech-slider::-webkit-scrollbar {
+    display: none;
+}
+.tech-slider {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Mobile Screens ke liye button ki position thodi theek karna */
+@media (max-width: 768px) {
+    #slideLeft { left: 0px; }
+    #slideRight { right: 0px; }
+}
